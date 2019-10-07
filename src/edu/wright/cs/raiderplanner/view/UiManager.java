@@ -696,6 +696,16 @@ public class UiManager {
 		alert.showAndWait();
 	}
 
+	
+	public static ButtonType displayFileOpenError(String message) {
+	Alert alert = new Alert(Alert.AlertType.ERROR,
+		"Unable to open file. Please choose a new file.",
+		ButtonType.OK, ButtonType.CANCEL);
+	alert.setGraphic(null);
+	alert.setHeaderText(message);
+	alert.showAndWait();
+	return alert.getResult();
+	}
 	/**
 	 * Reports that an action was successful and displays a message.
 	 *
@@ -742,5 +752,10 @@ public class UiManager {
 	public static File getSavesFolder() {
 		return savesFolder;
 	}
+
+	/**
+	 * @param message
+	 * @return
+	 */
 
 }
