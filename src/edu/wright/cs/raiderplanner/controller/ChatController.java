@@ -157,9 +157,9 @@ public class ChatController {
 		sendButton.setOnAction((ActionEvent exception1) -> {
 			DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			LocalDateTime time = LocalDateTime.now();
-			if (!(tfMessageToSend.getText().equals(""))) {
-				printOutput.println(tfMessageToSend.getText());
-				printOutput.flush();
+			if ((!tfMessageToSend.getText().equals(""))) {
+				msgArea.appendText(userName + ": " + tfMessageToSend.getText());
+				msgArea.appendText("\t" + date.format(time) + "\n");
 				tfMessageToSend.setText("");
 			}
 		});
