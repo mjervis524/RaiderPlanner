@@ -42,6 +42,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import org.testfx.framework.junit5.Start;
+
 /**
  * This is a class to handle the code for the chat feature.
  * @author MichaelPantoja
@@ -152,6 +154,7 @@ public class ChatController {
 	 *  the line of text will append to the chat log so the user can see what they sent. It follows
 	 *  the format of USER: sentence time/date.
 	 *  The text box with the user input will be set back to blank after a message is sent.
+	 *  Fixed by: Austin Naas
 	 */
 	public static void sendButtonAction(String userName) {
 		sendButton.setOnAction((ActionEvent exception1) -> {
@@ -159,7 +162,7 @@ public class ChatController {
 			LocalDateTime time = LocalDateTime.now();
 			if ((!tfMessageToSend.getText().equals(""))) {
 				msgArea.appendText(userName + ": " + tfMessageToSend.getText());
-				msgArea.appendText("\t" + date.format(time) + "\n");
+	 			msgArea.appendText("\t" + date.format(time) + "\n");
 				tfMessageToSend.setText("");
 			}
 		});
